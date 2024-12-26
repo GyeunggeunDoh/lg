@@ -60,27 +60,20 @@ class UserAsset(Asset):
 
         test_df =  df.copy()
 
-        column_description_df = pd.read_excel('구독가망지수_컬럼설명 1.xlsx')
-
-        column_description_dict = dict(zip(column_description_df['사용한 컬럼'], column_description_df['설명']))
-
-        # train_df = train_df.rename(columns=column_description_dict)
-        test_df = test_df.rename(columns=column_description_dict)
-
-        target_col = '가전구독여부'
-        # train_df = train_df[[target_col] + [col for col in train_df.columns if col != target_col]]
-        test_df = test_df[[target_col] + [col for col in test_df.columns if col != target_col]]
-
 
         # train_df['기준일자'] = pd.to_datetime(train_df['기준일자'],format='%Y-%m-%d')
         test_df['기준일자'] = pd.to_datetime(test_df['기준일자'],format='%Y-%m-%d')
 
+        # test_df에서 '최근 구매 제품 0번째' 가 notna()인 행만 필터
         test_purchase_df = test_df[test_df['최근 구매 제품 0번째'].notna()]
 
+        # '기준일자'가 2024년 2월 1일 이전인 경우 buy_df
         buy_df = test_purchase_df[test_purchase_df['기준일자'] < pd.Timestamp('2024-02-01')]
 
+        # '기준일자'가 2024년 2월 1일 이후이거나 같은 경우 buy_df_test
         buy_df_test = test_purchase_df[test_purchase_df['기준일자'] >= pd.Timestamp('2024-02-01')]
 
+        # 기존 df 로드 및 데이터 분리
         df = buy_df.copy()
 
         excluded_columns = [
@@ -492,3 +485,4 @@ if __name__ == "__main__":
     envs, argv, data, config = {}, {}, {}, {}
     ua = UserAsset(envs, argv, data, config)
     ua.run()
+
