@@ -6,7 +6,7 @@ Trace profile은 사용자별 구매 여정, demographic 정보를 토대로 만
 
 ## What is trace clustering? 
 
-Trace clustering은 사전에 구성한 trace profile을 사용하여 사용자를 clustering 하는 방법론입니다. 프로세스 마이닝 분야에서 널리 쓰이는 방법론으로, 복잡한 process중 유사한 trace들 끼리 군집화하여 특성을 파악하는데 사용됨니다. 
+Trace clustering은 사전에 구성한 trace profile을 사용하여 사용자를 clustering 하는 방법론입니다. 프로세스 마이닝 분야에서 널리 쓰이는 방법론으로, 복잡한 process중 유사한 trace들 끼리 군집화하여 특성을 파악하는데 사용됩니다. 
 Song, M., Günther, C.W., van der Aalst, W.M.P. (2009). Trace Clustering in Process Mining. In: Ardagna, D., Mecella, M., Yang, J. (eds) Business Process Management Workshops. BPM 2008. Lecture Notes in Business Information Processing, vol 17. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-00328-8_11 는 trace clustering을 처음 제시한 논문이며, trace가 무엇인지, trace clustering의 개요를 파악할수 있는 논문입니다.
 
 # 💡Features
