@@ -107,8 +107,5 @@ sklearn의 kmeans clustering과 truncatedsvd를 사용하였습니다.
 
 각 산출물에 대한 상세 설명은 다음과 같습니다.  
 
-**train_config.pkl**  
-preprocess asset의 argument를 담고 있는 pickle 파일입니다.
-
 test_data_cluster_info
 - 새로운 고객 데이터의 분류된 cluster와 예측 구독지수, 대표&액션 페르소나가 저장된 파일입니다.
