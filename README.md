@@ -1,33 +1,13 @@
 # 📖Solution 
 
-## What is Anomaly Detection?
+## What is trace profile?
 
-Anomaly Detection은 데이터 내에 존재하는 비정상적인 패턴이나 이상치를 탐지하는 AI 컨텐츠입니다. 별도의 레이블링 작업 없이도 통계 및 Machine learning 기법을 활용하여 데이터의 정상 범주와 비정상 범주를 자동으로 구분해 냅니다. Anomaly Detection은 개별 데이터 포인트가 정상 범주에서 벗어나는지를 탐지하는 Point anomaly detection(PAD), 정상 패턴의 범주에서 벗어난 이상 패턴을 식별하는 Contextual anomaly detection(CAD, TBD), 그리고 다변량 데이터의 관계를 종합적으로 학습하여 비정상적인 시점과 패턴을 탐지하는 Multivariate anomaly detection(MAD, TBD) 모델을 제공합니다. 이렇게 Anomaly Detection은 데이터의 특성과 목적에 맞게 다양하게 활용될 수 있습니다.
+Trace profile은 사용자별 구매 여정, demographic 정보를 토대로 만든 '사용자 정보'입니다. 해당 solution에서는 사용자의 구매 여정을 파악한뒤, 구매한 물품, 구매한 물품의 순서를 벡터화 하여 구매여정 trace profile을 구성하고, 사용자의 demographic 정보 또한 벡터화 하여 demographic profile을 구성합니다. 이후, 두개의 profile을 합쳐서 고객의 완성된 trace profile을 구상합니다. 해당 solution에서 trace profile을 구성하는 방법 외에도 의사결정자의 needs에 따라 알맞은 trace profile을 구성할수 있으며, 용도에 따라 필요한 정보를 사용하여 trace profile 구성이 가능합니다.
 
-## When to use Anomaly Detection?
+## What is trace clustering? 
 
-Anomaly Detection 적용이 가능한 분야는 다음과 같습니다.  
-
-제조 과정 이상치 탐지: 제조 과정 모니터링 센서로 제조 과정 중 이상 발생 여부를 확인하려는 고객을 위한 기능입니다. 이상 발생 여부를 탐지하여 문제를 사전에 방지할 수 있습니다.  
-시계열 이상치 탐지: 제조 과정 뿐만 아니라 주식, 각종 추세 데이터 등 시계열 데이터에 대하여 이상치를 확인하고자 하는 고객입니다. 해당 이상치를 조기에 탐지하여 사용자는 적절한 조치를 취할 수 있게 됩니다.
-
-## Key features and benefits 
-
-> 기술적 관점 혹은 도메인 관점에서 작성해주세요.
-
-Anomaly Detection은 빠르고 높은 효율성을 갖춘 통계 기반의 모델을 제공하여, 학습 리소스를 크게 필요로 하지 않으면서도 뛰어난 성능을 발휘합니다.
-
-이는 제품 생산 과정에서 얻어진 일차원 데이터 내에서 이상치를 탐지하고자 하는 고객들에게 유용합니다. 또한 주가 추세 등과 같은 시계열 데이터에서 갑작스런 특이 사항이 발생한 포인트를 탐지하고자 하는 고객들에게도 유용한 솔루션입니다.
-
-**빠른 속도와 메모리 요구가 낮은 통계 기반 모델**  
-Anomaly detection를 통해 우수하고 학습 리소스가 많이 필요하지 않은 효율적인 통계 및 머신러닝 기반의 모델을 손쉽게 사용할 수 있습니다. 빠른 속도와 메모리 요구가 낮은 DynamicThreshold, SpectralResidual과 같은 알고리즘을 기반으로 AD는 신뢰성 있고, 빠른 속도로 이상치를 탐지해낼 수 있습니다.
-
-**복수 컬럼에 대한 이상치 탐지 및 그룹 별 이상치 탐지**  
-경우에 따라 각 포인트 마다 이상치 탐지를 하고 싶은 데이터가 여러 종류가 존재하거나, 서로 다른 그룹 혹은 센서 등에서 얻어진 데이터들을 그룹별로 이상 탐지를 진행해야 할 수 있습니다. AD는 실험계획서의 argument만 변경해줌으로써 이를 쉽고 빠르게 진행할 수 있습니다.
-
-**실험계획서를 이용한 간편한 사용성**  
-Anomaly Detection 중 Point Anomaly Detection 모델은 DynamicThreshold, SpectralResidual, stl_DynamicThreshodl, stl_SpectralResidual이라는 4가지 모델을 제공합니다. 이런 모델을 사용하기 위해 실험계획서의 argument만 변경하면 쉽게 사용할 수 있어, 간편하면서도 효율적인 사용성을 제공합니다.
-
+Trace clustering은 사전에 구성한 trace profile을 사용하여 사용자를 clustering 하는 방법론입니다. 프로세스 마이닝 분야에서 널리 쓰이는 방법론으로, 복잡한 process중 유사한 trace들 끼리 군집화하여 특성을 파악하는데 사용됨니다. 
+Song, M., Günther, C.W., van der Aalst, W.M.P. (2009). Trace Clustering in Process Mining. In: Ardagna, D., Mecella, M., Yang, J. (eds) Business Process Management Workshops. BPM 2008. Lecture Notes in Business Information Processing, vol 17. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-00328-8_11 는 trace clustering을 처음 제시한 논문이며, trace가 무엇인지, trace clustering의 개요를 파악할수 있는 논문입니다.
 
 # 💡Features
 
@@ -35,14 +15,9 @@ Anomaly Detection 중 Point Anomaly Detection 모델은 DynamicThreshold, Spectr
 
 AI Contents의 pipeline은 기능 단위인 asset의 조합으로 이루어져 있습니다. AD는 총 6가지 asset의 조합으로 pipeline이 구성되어 있습니다.  
 
-**Train pipeline**
+**Trace_clustering pipeline**
 ```
-Input - Readiness - Preprocess - Train
-```
-
-**Inference pipeline**
-```
-Input - Readiness - Preprocess - Inference - Output
+Trace_clustering
 ```
 
 ## Assets
@@ -51,20 +26,32 @@ Input - Readiness - Preprocess - Inference - Output
 
 각 단계는 asset으로 구분됩니다.
 
-**Input asset**  
-Anomaly Detection은 학습할 때 이상탐지를 하고자 하는 x 컬럼이 포함된 tabular 형태의 데이터로 동작합니다. 따라서 input asset에서는 해당 csv 데이터를 읽고 다음 asset으로 전달하는 역할을 수행합니다. 위 도표에서 보듯 다음 asset인 Preprocess asset으로 전달됩니다.
+**Trace clustering asset**  
+첫번째로, 데이터를 입력받아 결측치 삽입 및 이상치 제거와 같은 전처리를 진행하게 됩니다.
 
-**Readiness asset**  
-Readniess asset에서는 전처리와 학습 및 추론을 진행하기 전 데이터 입력과 설정 등이 조건에 맞게 되어 있는지를 체크하게 됩니다.
+두번째로, 고객의 구매 여정 정보를 통하여 구매여정 profile을 구성합니다. 
+구매여정 profile을 구성하기 위하여, 고객이 구매한 상품의 빈도수를 벡터화 하여 저장합니다.
+그 이후, 고객이 구매한 순서를 profile에 반영하기 위하여 물품 구매 transition matrix를 생성하여 flatten 후 PCA를 통하여 저차원 벡터화 합니다.
+마지막으로 두 벡터를 합쳐서 구매여정 profile을 구성하게 됩니다.
 
-**Preprocess asset**  
-Anomaly Detection은 학습 혹은 추론이 진행되기 전 데이터를 전처리하는 과정을 먼저 거치게 되며 이 과정이 process asset에서 진행됩니다. 해당 과정에서는 각 포인트마다 빈 값 혹은 NaN과 같이 정상적이지 않은 포인트를 제거하거나 scaling을 하는 등을 과정이 진행됩니다.
+세번째로, 고객의 demographic 정보를 반영하는 demographic profile 구성을 합니다.
+데이터 상 존재하는 x(성별, 나이, 지역, 웹 체류시간, LG 가전 구매수,...)를 truncadedsvd 롤 통하여 저차원 벡터화 하여 저장하게 됩니다.
 
-**Train asset**  
-Anomaly Detection에서 train asset은 이상 탐지를 위한 최적의 파라미터를 찾아내는 과정을 수행합니다. 우선 preprocess asset을 거쳐서 전처리가 완료된 데이터를 전달 받습니다.그 후 실험계획서에 미리 작성한 설정에 맞게 데이터를 그룹별, 컬럼별로 나누게 됩니다. 나누어진 데이터마다 모델별로 인스턴스를 생성하고 bayesian optimization을 통해 모델 별로 최적을 파라미터들 찾아내는 과정을 진행합니다. 이 과정이 완료되고 나면 모델 별 성능과 학습 과정에서의 추론 결과를 저장합니다.만약 x 컬럼 별로 레이블이 존재하는 경우 unsupervised 기반의 metric이 아닌, f1 score, precision, recall을 직접 maximize 하도록 설정할 수 있습니다. 이 경우 모델 별 성능이 output csv에 같이 저장되고, 모델 별 성능을 비교한 plot 또한 저장됩니다.
+네번째로, 구매여정 profile과 demographic profile를 합쳐서 고객의 완성된 trace profile을 구성하게 됩니다.
 
-**Inference asset**  
-inference asset에서는 input asset, preprocess asset을 거쳐 전달받은 inference 데이터를 읽고, 다시 그룹 별, 데이터 컬럼별로 나누게 됩니다. 나누어진 데이터마다 이전 학습 단계에서 저장한 모델들 중 선택된 모델들을 불러와서 이상 탐지를 진행하고 결과를 저장합니다.만약 레이블 컬럼이 존재하는 경우 모델 별 성능이 output csv에 같이 저장되고, 모델 별 성능을 비교한 plot 또한 저장됩니다. 운영을 위한 파일은 inference_summary.yaml도 저장됩니다.
+다섯번째로, trace profile을 가지고 trace clustering을 진행하게 됩니다. 
+해당 solution에서는 k-means clustering 기법을 사용하였으며, k를 정하기 위하여 silhouette score를 사용하여 가장 적절한 k 를 자동으로 도출하여 사용합니다.
+trace clustering의 결과로 각 고객들을 대변하는 trace profile이 clustering됩니다.
+
+여섯번째로, 생성된 cluster의 지표를 계산하게 됩니다.
+각 cluster별로 평균 고객 구독 비율에 비해 해당 cluster가 얼마나 더 구독을 하였는지를 수치화하는 지표인 구독 지수를 계산하게 됩니다. 예를 들어 전체 고객의 구독률이 15%인데, cluster 1 의 구독률이 20%라면, 해당 cluster의 구독지수는 20%/15%로 1.5가 됩니다.
+그 다음으로 각 cluster의 가장 중심에 있는 고객을 대표 고객 persona로 지정하여 추후에 사용할수 있도록 합니다.
+추가적으로, 각 cluster과 가장 가깝지만 구독률이 더 높은 cluster를 도출하고, 해당 cluster의 대표 persona를 action persona로 지정하여 추후 구독률을 높이는 action에 활용할수 있도록 합니다.
+
+일곱번째로, 새롭게 들어온 고객을 대상으로 똑같은 방식으로 trace profile을 도출히게 되고, 사전에 구성한 고객 cluster에 새로운 고객을 분류하게 됩니다.
+이때, 새로운 고객의 예측 구독지수는 불뉴된 cluster의 구독지수를 사용하게 되고, 대표&액션 페르소나 또한 분류된 cluster의 persona를 사용하게 됩니다.
+이를 통하여 새로운 고객이 구독할 확률이 어느정도 되고, 해당 고객과 유사한 고객이 과거에는 어떤 모습을 보였는지, 어떻게 하면 해당 고객의 구독률을 높일 수 있는지를 대표&엑션 페르소나를 통하여 결정할수 있게 됩니다.
+
 
 ## Experimental_plan.yaml
 
@@ -73,52 +60,13 @@ inference asset에서는 input asset, preprocess asset을 거쳐 전달받은 in
 **experimental_plan.yaml 구조**  
 experimental_plan.yaml에는 ALO를 구동하는데 필요한 다양한 setting값이 작성되어 있습니다. 이 setting값 중 '데이터 경로'와 'user arguments'부분을 수정하면 AI Contents를 바로 사용할 수 있습니다.
 
-**데이터 경로 입력(external_path)**  
-external_path의 parameter는 불러올 파일의 경로나 저장할 파일의 경로를 지정할 때 사용합니다. save_train_artifacts_path와 save_inference_artifacts_path는 입력하지 않으면 default 경로인 train_artifacts, inference_artifacts 폴더에 모델링 산출물이 저장됩니다.
-```
-external_path:
-    - load_train_data_path: ./solution/sample_data/train
-    - load_inference_data_path:  ./solution/sample_data/test
-    - save_train_artifacts_path:
-    - save_inference_artifacts_path:
-```
-
-|파라미터명|DEFAULT|설명 및 옵션|
-|---|----|---|
-|load_train_data_path|	./sample_data/train/|	학습 데이터가 위치한 폴더 경로를 입력합니다.(csv 파일 명 입력 X)|
-|load_inference_data_path|	./sample_data/test/|	추론 데이터가 위치한 폴더 경로를 입력합니다.(csv 파일 명 입력 X)|
-
-**사용자 파라미터(user_parameters)**  
-user_parameters 아래 step은 asset 명을 의미합니다. 아래 step: input은 input asset단계임을 의미합니다.
-args는 input asset(step: input)의 user arguments를 의미합니다. user arguments는 각 asset마다 제공하는 데이터 분석 관련 설정 파라미터입니다. 이에 대한 설명은 아래에 User arguments 설명을 확인해주세요.
-```
-user_parameters:
-    - train_pipeline:
-        - step: input
-          args:
-            - file_type
-            ...
-          ui_args:
-            ...
 
 ```
 ## Algorithms and models
 
-TCR의 Train/Inference asset에는 총 5종의 모델이 내장되어 있습니다. 데이터 분석가들이 classification/regression 모델을 만들며 자주 사용한 모델 5종과 각 모델 별 파라미터 세트를 선정하였습니다. TCR의 모델 리스트와 파라미터 세트는 아래와 같습니다
+sklearn의 kmeans clustering과 truncatedsvd를 사용하였습니다.
 
-TCR 내장 모델
-- rf: random forest  
-(max_depth: 6, n_estimators: 300), (max_depth: 6, n_estimators: 500)
-- gbm: gradient boosting machine  
-(max_depth: 5, n_estimators: 300), (max_depth: 6, n_estimators: 400), (max_depth: 7, n_estimators: 500)
-- lgbm: light gradient boosting machine  
-(max_depth: 5, n_estimators: 300), (max_depth: 7, n_estimators: 400), (max_depth: 9, n_estimators: 500)
-- cb: catboost  
-(max_depth: 5, n_estimators: 100), (max_depth: 7, n_estimators: 300), (max_depth: 9, n_estimators: 500)
-- xgb: Extreme Gradient Boosting  
-(max_depth: 5, n_estimators: 300), (max_depth: 6, n_estimators: 400), (max_depth: 7, n_estimators: 500)
 
-![poster](./catboost.png)
 
 
 # 📂Input and Artifacts
@@ -126,54 +74,18 @@ TCR 내장 모델
 ## 데이터 준비
 
 **학습 데이터 준비**  
-1. 이상 탐지를 하고자 하는 포인트들이 컬럼으로 이루어진 csv 파일을 준비합니다.
-2. 모든 csv 파일은 해당 row를 식별할 수 있는 time column이 존재해야 합니다.
-3. 만약 time column이 중복되는 경우 이를 drop 하도록 설정할 수 있습니다. 만약 drop하지 않는 경우 row별로 식별이 가능하도록 하는 컬럼들이 별도로 존재해야 합니다.
-4. label 컬럼은 optional 합니다. 만약 존재하는 경우 x 컬럼 별로 모두 존재해야 합니다.
-5. 그룹 별로 묶는 경우 그룹 별로 묶기 위한 컬럼이 존재해야 합니다.
+1. 고객의 대변하는 변수의 값들이 존재하는들이 컬럼으로 이루어진 csv 파일을 준비합니다.
+2. 모든 csv 파일은 해당 row를 식별할 수 있는 고객 id와  구독 여부가 존재해야 합니다.
+
 
 **학습 데이터셋 예시**
 
-|time_col|x_col_1|x_col_2|grouupkey|
+|고객id|성별|지역|구매물품1|구매물품2|구매물품3|
 |------|---|---|---|
-|time 1|value 1_1|value 1_2|group1|
-|time 2|value 2_1|value2_2|group2|
-|time 3|value 3_1|value3_2|group1|
+|1|남|대구|에어컨|에어컨|NA|
+|2|여|서울|세탁기|TV|TV|
+|3|남|춘천|TV|NA|NA|
 
-**Input data directory 구조 예시**  
-- ALO를 사용하기 위해서는 train과 inference 파일이 분리되어야 합니다. 아래와 같이 학습에 사용할 데이터와 추론에 사용할 데이터를 구분해주세요.
-- 하나의 폴더 아래 있는 모든 파일을 input asset에서 취합해 하나의 dataframe으로 만든 후 모델링에 사용됩니다. (경로 밑 하위 폴더 안에 있는 파일도 합쳐집니다.)
-- 하나의 폴더 안에 있는 데이터의 컬럼은 모두 동일해야 합니다.
-```
-./{train_folder}/
-    └ train_data1.csv
-    └ train_data2.csv
-    └ train_data3.csv
-./{inference_folder}/
-    └ inference_data1.csv
-    └ inference_data2.csv
-    └ inference_data3.csv
-```
-
-## 데이터 요구사항
-
-**필수 요구사항**  
-입력 데이터는 다음 조건을 반드시 만족하여야 합니다.
-
-|index|item|spec.|
-|----|----|----|
-|1|x 컬럼의 개수|1개 이상|
-|2|time 컬럼의 개수|1개|
-|3|x 컬럼의 타입|float|
-
-**추가 요구사항**  
-최소한의 성능을 보장하기 위한 조건입니다. 하기 조건이 만족되지 않아도 알고리즘은 돌아가지만 성능은 확인되지 않았습니다    
-
-|index|item|spec.|
-|----|-----|---|
-|1|time 컬럼|time 컬럼의 값은 중복이 최대한 적어야 합니다. 중복되는 time 컬럼 값이 있는데 중복 time 컬럼을 drop 시키게 하면 원치 않게 핻들이 삭제 될 수 있습니다.|
-|2|NG 데이터|NG 데이터가 아예 존재하지 않는 경우 성능에 영향을 미칠 수 있습니다.|
-|3|group key|group 마다 데이터 양이 충분해야 합니다. 그렇지 않은 경우 성능에 악영향을 미칠 수 있습니다.|
 
 ## 산출물
 
@@ -182,51 +94,21 @@ TCR 내장 모델
 **Train pipeline**
 ```
 ./alo/train_artifacts/
-    └ models/preprocess/
-        └ train_config.pkl
-        └ train_pipeline_x.pkl
-    └ models/train/prep_{x 컬럼명}
-        └ train_params.pkl
-    └ output/
-        └ train_result.csv
-    └ extra_output/train/prep_{x 컬럼명}
-        └ confusion_matrix.jpg (y 컬럼 입력시 생성)
-        └ plot_anomaly_model_best_model.jpg (y 컬럼 입력시 생성)
-        └ plot_anomaly_model_{선택한 모델 명}.jpg (y 컬럼 입력시 생성)
-        └ score_compare.jpg (y 컬럼 입력시 생성)
-```
-
-**Inference pipeline**
-```
- ./alo/inference_artifacts/
-    └ output/inference/
-        └ output.csv
-    └ extra_output/inference/prep_{x 컬럼명}
-        └ confusion_matrix.jpg (y 컬럼 입력시 생성)
-        └ plot_anomaly_model_best_model.jpg (y 컬럼 입력시 생성)
-        └ plot_anomaly_model_{선택한 모델 명}.jpg (y 컬럼 입력시 생성)
-        └ score_compare.jpg (y 컬럼 입력시 생성)
-    └ score/
-        └ inference_summary.yaml
+    └ models/traceclustering/
+        └ svd.pkl
+        └ scaler_1.pkl
+        └ scaler_2.pkl
+        └ pca_for_transition.pkl
+        └ kmeans.pkl
+        └ test_data_cluster_info.csv
 
 ```
+
 
 각 산출물에 대한 상세 설명은 다음과 같습니다.  
 
 **train_config.pkl**  
 preprocess asset의 argument를 담고 있는 pickle 파일입니다.
 
-**train_pipeline_x.pkl**  
-preprocess asset에서 x 컬럼을 전처리하는 모델을 저장한 pickle 파일입니다.
-
-**train_params.pkl**  
-train asset에서 학습을 진행 후 모델을 저장한 pkl 파일입니다.
-
-**train_result.csv**    
-train pipeline이 끝난 후 결과를 저장한 csv 파일입니다.
-
-**confusion_matrix.jpg**  
-y 컬럼이 주어진 경우 모델(들)의 train data를 이용한 confusion matrix를 plot한 jpg 파일입니다.
-
-**plot_anomaly_model_best_model.jpg**  
-모델(들) 중 score가 가장 높은 모델이 train data를 anomaly detection한 결과를 plot한 jpg 파일입니다.
+test_data_cluster_info
+- 새로운 고객 데이터의 분류된 cluster와 예측 구독지수, 대표&액션 페르소나가 저장된 파일입니다.
